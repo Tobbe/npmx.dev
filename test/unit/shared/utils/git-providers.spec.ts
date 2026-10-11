@@ -374,6 +374,19 @@ describe('parseRepositoryInfo', () => {
       expect(result?.host).toBeUndefined()
     })
 
+    it('parses Pushin URL from www.pushin.eu', () => {
+      const result = parseRepositoryInfo({
+        url: 'https://www.pushin.eu/tobbe/npmx-pushin-test',
+      })
+      expect(result).toMatchObject({
+        provider: 'pushin',
+        owner: 'tobbe',
+        repo: 'npmx-pushin-test',
+        rawBaseUrl: 'https://pushin.eu/tobbe/npmx-pushin-test/blob/HEAD',
+        blobBaseUrl: 'https://pushin.eu/tobbe/npmx-pushin-test/blob/HEAD',
+      })
+    })
+
     it('parses Pushin HTTPS clone URL from git.pushin.eu', () => {
       const result = parseRepositoryInfo({
         url: 'git+https://git.pushin.eu/tobbe/npmx-pushin-test.git',
