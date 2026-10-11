@@ -239,7 +239,9 @@ const providers: ProviderConfig[] = [
       if (!owner || !repo) return null
       return { owner, repo }
     },
-    // Pushin doesn't serve raw files yet, so the blob URL is the closest we have
+    // Pushin doesn't serve raw files yet, so the blob URL is the closest we have.
+    // Relative README images resolve to HTML pages and won't render until then.
+    // TODO: switch to the raw file URL once Pushin supports serving raw files
     getRawBaseUrl: (ref, branch = 'HEAD') =>
       `https://pushin.eu/${ref.owner}/${ref.repo}/blob/${branch}`,
     getBlobBaseUrl: (ref, branch = 'HEAD') =>
