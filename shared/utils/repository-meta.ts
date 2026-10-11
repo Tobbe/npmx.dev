@@ -457,7 +457,7 @@ const pushinAdapter: ProviderAdapter = {
       repo: base,
       stars: `${base}/stargazers`,
       forks: base, // Pushin doesn't have a forks page
-      watchers: base,
+      watchers: base, // Pushin doesn't have a watchers page
     }
   },
 
